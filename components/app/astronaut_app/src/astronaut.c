@@ -68,13 +68,15 @@ void ks_esp_cam_init(void)
 
 	static lv_style_t style1;
 	lv_style_set_bg_color(&style1, LV_STATE_DEFAULT, LV_COLOR_BLACK); //设置屏幕背景
-	lv_style_set_bg_opa(&style1, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_opa(&style1, LV_STATE_DEFAULT,255);
 	lv_obj_add_style(scr, LV_BTN_PART_MAIN, &style1); /*Default button style*/
 
 	scr_body = lv_cont_create(scr, NULL); //屏幕主体
 	lv_cont_set_fit2(scr_body, LV_FIT_NONE, LV_FIT_NONE);
-	lv_obj_set_size(scr_body, 240, 240 - 25);
-	lv_obj_set_pos(scr_body, 0, 25);
+	//lv_obj_set_size(scr_body, 240, 240 - 25);
+    //lv_obj_set_pos(scr_body, 0, 25);
+    lv_obj_set_size(scr_body, 150, 150);
+    lv_obj_set_pos(scr_body, -70, 90);
 	lv_style_set_border_color(&style1, LV_STATE_DEFAULT, LV_COLOR_BLACK); //边框背景色
 	lv_style_set_border_width(&style1, LV_STATE_DEFAULT, 0);			  //边框宽度
 	lv_style_set_border_opa(&style1, LV_STATE_DEFAULT, 0);				  //边框透明度

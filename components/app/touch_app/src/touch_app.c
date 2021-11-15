@@ -18,6 +18,7 @@
 #include "led_strip.h"
 //#include "board.h"
 #include "touch_app.h"
+#include "coffee_app.h"
 
 #define TOUCH_BUTTON_WATERPROOF_ENABLE 1    /*!< Waterproof function 1:enable 2:disable */
 #define TOUCH_BUTTON_DENOISE_ENABLE    1    /*!< Denoise function 1:enable 2:disable */
@@ -245,6 +246,7 @@ esp_err_t example_touch_deinit(void)
     return ESP_OK;
 }
 
+#define COFFEE_APP  0
 static void touch_pad_read_task(void *pvParameter)
 {
     touch_event_t evt = {0};
@@ -281,6 +283,7 @@ static void touch_pad_read_task(void *pvParameter)
                 break;*/
 
             case TOUCH_BUTTON_PLAY:
+                #if (COFFEE_APP == 1)
                 ESP_LOGI(TAG, "play     -> set the green light");
                 ESP_ERROR_CHECK(strip->set_pixel(strip, 0, 0, LEDC_COLOR, 0));
                 flag  = LED_GREEN;
@@ -288,6 +291,9 @@ static void touch_pad_read_task(void *pvParameter)
                 green = LEDC_COLOR;
                 blue  = 0;
                 ESP_ERROR_CHECK(strip->refresh(strip, 0));
+                #else
+                playbtn_action();
+                #endif
                 break;
 
             /*case TOUCH_BUTTON_NETWORK:
@@ -307,6 +313,7 @@ static void touch_pad_read_task(void *pvParameter)
                 break;
 
             case TOUCH_BUTTON_VOLUP:
+                #if (COFFEE_APP == 1)
                 if (flag) {
                     int value = 0;
 
@@ -327,10 +334,13 @@ static void touch_pad_read_task(void *pvParameter)
                     ESP_LOGI(TAG, "vol_up   -> make the light brighter:%d", value);
                     ESP_ERROR_CHECK(strip->refresh(strip, 0));
                 }
-
+                #else
+                prebtn_action();
+                #endif
                 break;
 
             case TOUCH_BUTTON_VOLDOWN:
+                #if (COFFEE_APP == 1)
                 if (flag) {
                     int value = 0;
 
@@ -351,7 +361,9 @@ static void touch_pad_read_task(void *pvParameter)
                     ESP_LOGI(TAG, "vol_down -> make the light darker:%d", value);
                     ESP_ERROR_CHECK(strip->refresh(strip, 0));
                 }
-
+                #else
+                nextbtn_action();
+                #endif
                 break;
 
             default:

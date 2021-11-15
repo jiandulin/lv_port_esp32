@@ -45,10 +45,10 @@
 
 /*user include files*/
 /*add by jiandulin date:20211108-1519*/
-//#include "style_app.h"
 #include "style_app.h"
-#include "touch_app.h"
-#include "astronaut.h"
+//#include "touch_app.h"
+//#include "astronaut.h"
+#include "user_app.h"
 
 /*********************
  *      DEFINES
@@ -72,7 +72,6 @@ void app_main() {
      * Otherwise there can be problem such as memory corruption and so on.
      * NOTE: When not using Wi-Fi nor Bluetooth you can pin the guiTask to core 0 */
     xTaskCreatePinnedToCore(guiTask, "gui", 4096*2, NULL, 0, NULL, 1);
-    //lv_style_cogwheel_img_app();
 }
 
 /* Creates a semaphore to handle concurrent call to lvgl stuff
@@ -154,9 +153,10 @@ static void guiTask(void *pvParameter) {
     /* Create the demo application */
     //create_demo_application();
     //lv_style_cogwheel_img_app();
-    touch_app_init();
-    ks_esp_cam_init();
-    astronaut_start();
+    //touch_app_init();
+    //ks_esp_cam_init();
+    //astronaut_start();
+    user_app();
 
     while (1) {
         /* Delay 1 tick (assumes FreeRTOS tick is 10ms */

@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.5)
 set(EXTRA_COMPONENT_DIRS 
     "components/app/led_strip"
     "components/app/touch_app"
-    "components/app/astronaut_app"
+#    "components/app/astronaut_app"
+    "components/app/coffee_app"
     )
 
 if (NOT DEFINED PROJECT_NAME)

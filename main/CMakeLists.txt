@@ -4,7 +4,10 @@
 #	"style_app/style_app.c"
 #	)
 #set(COMPONENT_ADD_INCLUDEDIRS  "." "style_app")
-set(COMPONENT_SRCS main.c)
+set(COMPONENT_SRCS 
+	main.c
+	user_app.c
+	)
 set(COMPONENT_ADD_INCLUDEDIRS  ".")
 
 
