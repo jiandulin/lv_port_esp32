@@ -47,6 +47,8 @@
 /*add by jiandulin date:20211108-1519*/
 //#include "style_app.h"
 #include "style_app.h"
+#include "touch_app.h"
+#include "astronaut.h"
 
 /*********************
  *      DEFINES
@@ -151,7 +153,10 @@ static void guiTask(void *pvParameter) {
 
     /* Create the demo application */
     //create_demo_application();
-    lv_style_cogwheel_img_app();
+    //lv_style_cogwheel_img_app();
+    touch_app_init();
+    ks_esp_cam_init();
+    astronaut_start();
 
     while (1) {
         /* Delay 1 tick (assumes FreeRTOS tick is 10ms */
