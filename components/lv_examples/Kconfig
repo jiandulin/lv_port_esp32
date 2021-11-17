@@ -20,6 +20,12 @@ menu "lv_examples configuration"
 
         config LV_USE_DEMO_STRESS
             bool "Stress test for LVGL."
+
+        config LV_USE_DEMO_PRINTER
+            bool "Show demo printer"
+
+        config LV_USE_DEMO_MUSIC
+            bool "Show demo music"
     endchoice
     
     config LV_DEMO_WIDGETS_SLIDESHOW

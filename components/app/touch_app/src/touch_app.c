@@ -246,7 +246,7 @@ esp_err_t example_touch_deinit(void)
     return ESP_OK;
 }
 
-#define COFFEE_APP  0
+#define COFFEE_APP  1
 static void touch_pad_read_task(void *pvParameter)
 {
     touch_event_t evt = {0};

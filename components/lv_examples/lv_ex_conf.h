@@ -47,7 +47,11 @@
 #endif
 
 /*Printer demo, optimized for 800x480*/
+#ifdef CONFIG_LV_USE_DEMO_PRINTER
+#define LV_USE_DEMO_PRINTER     1
+#else
 #define LV_USE_DEMO_PRINTER     0
+#endif
 
 /*Demonstrate the usage of encoder and keyboard*/
 #ifdef CONFIG_LV_USE_DEMO_KEYPAD_AND_ENCODER
@@ -68,6 +72,13 @@
 #define LV_USE_DEMO_STRESS  1 
 #else
 #define LV_USE_DEMO_STRESS  0 
+
+/*Music demo*/
+#ifdef CONFIG_LV_USE_DEMO_MUSIC
+#define LV_USE_DEMO_MUSIC   1
+#else
+#define LV_USE_DEMO_MUSIC   0
+#endif
 
 #endif
 

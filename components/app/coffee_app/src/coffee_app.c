@@ -55,7 +55,7 @@ static lv_obj_t *precent_label[3] = {NULL};
 LV_IMG_DECLARE(coffee_bean);
 LV_IMG_DECLARE(coffee_cup);
 LV_IMG_DECLARE(coffee_flower);
-LV_IMG_DECLARE(sky);
+//LV_IMG_DECLARE(sky);
 LV_IMG_DECLARE(coffee);
 LV_IMG_DECLARE(cup);
 LV_IMG_DECLARE(tree);
@@ -63,7 +63,7 @@ LV_IMG_DECLARE(tree);
 /* Image and txt resource */
 const void *btn_img[] = {LV_SYMBOL_PREV, LV_SYMBOL_PLAY, LV_SYMBOL_NEXT, LV_SYMBOL_PAUSE};
 //const void *wp_img[] = {&coffee_bean, &coffee_cup, &coffee_flower};
-const void *wp_img[] = {&coffee, &coffee, &tree};
+const void *wp_img[] = {&coffee, &tree, &tree};
 const char *coffee_type[] = {"RISTRETTO", "ESPRESSO", "AMERICANO"};
 
 typedef enum {
@@ -164,7 +164,7 @@ static void lv_obj_animate(lv_obj_t *obj, int type, uint16_t time, uint16_t dela
     lv_anim_start(&a);
 }
 
-#if 1
+#if 0
 void prebtn_action(void)
 {
 	if (--tab_id < 0) {
@@ -208,7 +208,7 @@ static void prebtn_action(lv_obj_t *obj, lv_event_t event)
 }
 #endif
 
-#if 1
+#if 0
 void nextbtn_action(void)
 {
 	if (++tab_id > 2) {
@@ -303,7 +303,7 @@ static void play_move_end_callback(lv_anim_t *anim)
     lv_anim_start(&a);
 }
 
-#if 1
+#if 0
 void playbtn_action(void)
 {
 	lv_obj_set_hidden(play_arc[tab_id], false);    /* hide the object */
@@ -386,7 +386,6 @@ static void create_tab(lv_obj_t *parent, uint8_t wp_img_id, uint8_t coffee_type_
 
     lv_obj_t *wp = lv_img_create(parent, NULL); /* create wallpaper */
     lv_img_set_src(wp, wp_img[wp_img_id]);      /* set wallpaper image */
-    //lv_img_set_src(wp, &sky);      /* set wallpaper image */
 
     static lv_style_t btn_rel_style;
     static lv_style_t btn_img_style;
@@ -404,7 +403,7 @@ static void create_tab(lv_obj_t *parent, uint8_t wp_img_id, uint8_t coffee_type_
     lv_img_set_src(preimg, btn_img[0]);
     lv_obj_set_style_local_image_recolor(preimg, LV_IMG_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_WHITE);
     lv_obj_set_pos(prebtn[id], 15, 30);
-    //lv_obj_set_event_cb(prebtn[id], prebtn_action);
+    lv_obj_set_event_cb(prebtn[id], prebtn_action);
     lv_obj_add_style(prebtn[id], LV_BTN_PART_MAIN, &btn_rel_style);
 
     nextbtn[id] = lv_btn_create(parent, NULL); /* Create next page btn */
@@ -413,7 +412,7 @@ static void create_tab(lv_obj_t *parent, uint8_t wp_img_id, uint8_t coffee_type_
     lv_img_set_src(nextimg, btn_img[2]);
     lv_obj_set_style_local_image_recolor(nextimg, LV_IMG_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_WHITE);
     lv_obj_set_pos(nextbtn[id], LV_HOR_RES - 50 - 15, 30);
-    //lv_obj_set_event_cb(nextbtn[id], nextbtn_action);
+    lv_obj_set_event_cb(nextbtn[id], nextbtn_action);
     lv_obj_add_style(nextbtn[id], LV_BTN_PART_MAIN, &btn_rel_style);
 
     playbtn[id] = lv_btn_create(parent, NULL); /* Create a make button */
@@ -422,7 +421,7 @@ static void create_tab(lv_obj_t *parent, uint8_t wp_img_id, uint8_t coffee_type_
     lv_img_set_src(playimg, btn_img[1]);
     lv_obj_set_style_local_image_recolor(playimg, LV_IMG_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_WHITE);
     lv_obj_align(playbtn[id], parent, LV_ALIGN_IN_BOTTOM_MID, 0, -15); /* Align to parent */
-    //lv_obj_set_event_cb(playbtn[id], playbtn_action);
+    lv_obj_set_event_cb(playbtn[id], playbtn_action);
     lv_obj_add_style(playbtn[id], LV_BTN_PART_MAIN, &btn_rel_style);
 
     /* Create a new style for the label */

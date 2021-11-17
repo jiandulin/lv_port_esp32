@@ -1,7 +1,7 @@
 //#include "lv_conf.h"
 //#include "lv_draw/lv_draw_img.h"
 #include "lvgl.h"
-
+  
 const uint8_t coffee_flower_map[] = {
 #if LV_COLOR_DEPTH == 16 && LV_COLOR_16_SWAP == 0
   /*Pixel format: Red: 5 bit, Green: 6 bit, Blue: 5 bit*/
