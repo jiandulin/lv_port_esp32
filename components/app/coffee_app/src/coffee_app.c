@@ -387,6 +387,7 @@ static void create_tab(lv_obj_t *parent, uint8_t wp_img_id, uint8_t coffee_type_
     lv_obj_t *wp = lv_img_create(parent, NULL); /* create wallpaper */
     lv_img_set_src(wp, wp_img[wp_img_id]);      /* set wallpaper image */
 
+#if 1
     static lv_style_t btn_rel_style;
     static lv_style_t btn_img_style;
     lv_style_init(&btn_rel_style);
@@ -509,6 +510,7 @@ static void create_tab(lv_obj_t *parent, uint8_t wp_img_id, uint8_t coffee_type_
     lv_obj_animate(weak_sweet[id], LV_ANIM_FLOAT_TOP | LV_ANIM_IN, 400, 0, NULL);
     lv_obj_animate(strong_sweet[id], LV_ANIM_FLOAT_TOP | LV_ANIM_IN, 400, 0, NULL);
     lv_obj_animate(playbtn[id], LV_ANIM_FLOAT_BOTTOM | LV_ANIM_IN, 400, 0, NULL); 
+#endif
 }
 
 static void lvgl_coffee(void)

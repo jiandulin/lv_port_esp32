@@ -6,6 +6,9 @@ set(EXTRA_COMPONENT_DIRS
     "components/app/touch_app"
     "components/app/astronaut_app"
     "components/app/coffee_app"
+    "components/app/arc_app"
+#    "components/app/Intelligent_Control_Panel"
+    "components/app/wingcool_demo"
     )
 
 if (NOT DEFINED PROJECT_NAME)

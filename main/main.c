@@ -139,7 +139,7 @@ static void guiTask(void *pvParameter) {
     lv_indev_drv_init(&indev_drv);
     indev_drv.read_cb = touch_driver_read;
     indev_drv.type = LV_INDEV_TYPE_POINTER;
-    lv_indev_drv_register(&indev_drv);
+    lv_indev_t * my_indev = lv_indev_drv_register(&indev_drv);
 #endif
 
     /* Create and start a periodic timer interrupt to call lv_tick_inc */
@@ -152,8 +152,8 @@ static void guiTask(void *pvParameter) {
     ESP_ERROR_CHECK(esp_timer_start_periodic(periodic_timer, LV_TICK_PERIOD_MS * 1000));
 
     /* Create the demo application */
-    //create_demo_application();
-    user_app();
+//    create_demo_application();
+    user_app(my_indev);
 
     while (1) {
         /* Delay 1 tick (assumes FreeRTOS tick is 10ms */
@@ -207,7 +207,7 @@ static void create_demo_application(void)
     #elif defined CONFIG_LV_USE_DEMO_STRESS
         lv_demo_stress();
     #elif defined CONFIG_LV_USE_DEMO_PRINTER
-        lv_demo_printer();  /*图片占用内存太大，这个例程运行不了*/
+        lv_demo_printer();  //stack flow
     #elif defined CONFIG_LV_USE_DEMO_MUSIC
         lv_demo_music();
     #else
