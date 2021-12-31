@@ -9,6 +9,7 @@ set(EXTRA_COMPONENT_DIRS
     "components/app/arc_app"
 #    "components/app/Intelligent_Control_Panel"
     "components/app/wingcool_demo"
+    "components/lv_lib_gif"
     )
 
 if (NOT DEFINED PROJECT_NAME)

@@ -694,7 +694,7 @@ static void initBoardNumber(uint8_t board[SIZE][SIZE]) {
 	addRandom(board);
 	addRandom(board);
 
-	game_2048_current_score = 0;
+	g_pt_lv_wingcool_2048_game->current_score_value = 0;
 }
 
 
@@ -789,7 +789,7 @@ static bool slideArray(uint8_t array[SIZE]) {
 					// merge (increase power of two)
 					array[t]++;
 					// increase score
-					game_2048_current_score+=(uint32_t)1<<array[t];
+					g_pt_lv_wingcool_2048_game->current_score_value+=(uint32_t)1<<array[t];
 					// set stop to avoid double merge
 					stop = t+1;
 				}

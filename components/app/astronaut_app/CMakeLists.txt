@@ -12,10 +12,17 @@ list(APPEND COMPONENT_SRCS "taikong/taikong001.c"
     "taikong/taikong008.c"
     "taikong/taikong009.c"
     "taikong/taikong010.c"
+#    "taikong/myeye.c"
+#	"taikong/example.c"
+#	"taikong/example_gif.c"
+	"taikong/50.c"
+	"taikong/haqian.c"
+#	"taikong/so.c"
     )
 set(COMPONENT_PRIV_REQUIRES
     "lvgl"
-    "lv_lib_png"
+#    "lv_lib_png"
+    "lv_lib_gif"
 )
 
 register_component()
